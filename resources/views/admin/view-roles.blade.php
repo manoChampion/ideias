@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <strong class="card-title">Data Table</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table table-hover table-bordered">
                             <a href="{{ route('create-role') }}" class="btn btn-primary" style="color: #FFF;">Criar Cargo</a>
                             <hr>
@@ -36,6 +36,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('delete-role', $role->id) }}"><i class="fa fa-remove"></i> Remover</a>
+                                        <a href="{{ route('update-role', $role->id) }}"><i class="fa fa-pencil"></i> Editar</a>
                                     </td>
                                 </tr>
 

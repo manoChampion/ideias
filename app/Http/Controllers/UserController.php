@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,25 +25,21 @@ class UserController extends Controller
     public function create(Request $request) {
 
         $roles = Role::all();
-
-        
+  
         if ($request->get('name-user')) {
             $user = new User();
 
             $user->username = $request->get('name-user');
             $user->email = $request->get('email-user');
             $user->birth = $request->get('birth-user');
-            $user->password = $request->get('password-user');
-
+            $user->password = Hash::make($request->get('password-user'));
+            $user->save();
+            $user->roles()->attach($request->get('role-user'));
             $user->save();
 
-            foreach ($request->get('role-user') as $id_role) {
-                $role = Role::find($id_role);
-                $user->roles()->save($role);
-            }
+            return redirect()->route('view-users');
         }
-
-
+        
         return view('admin.create-user', [
             'title' => 'Adicionar Usuário',
             'path'  => 'Controle de Acesso / Usuários / Adicionar Usuário'
@@ -50,10 +47,24 @@ class UserController extends Controller
 
     }
 
-    public function update($user_id) {
+    public function update($user_id, Request $request) {
 
         $roles = Role::all();
         $user = User::find($user_id);
+
+        if ($request->get('name-user')) {
+            $user = User::find($user_id);
+
+            $user->username = $request->get('name-user');
+            $user->email = $request->get('email-user');
+            $user->birth = $request->get('birth-user');
+            $user->password = $request->get('password-user');
+            $user->save();
+            $user->roles()->sync($request->get('role-user'));
+            $user->save();
+
+            return redirect()->route('view-users');
+        }
 
 
         return view('admin.update-user', [

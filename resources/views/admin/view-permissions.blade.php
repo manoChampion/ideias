@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <strong class="card-title">Lista de Permissões</strong>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <table class="table table-hover table-bordered">
                             <a href="{{ route('create-permission') }}" class="btn btn-primary" style="color: #FFF;">Criar Permissão</a>
                             <hr>

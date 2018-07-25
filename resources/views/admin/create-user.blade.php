@@ -31,7 +31,7 @@
                         <div class="col-12 col-md-9">
                             <select name="role-user[]" id="role-user" class="form-control" multiple>
                                 @forelse ($roles as $role)
-                                    <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @empty
                                     <option value="0">Sem cargo</option>
                                 @endforelse

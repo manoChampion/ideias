@@ -31,4 +31,17 @@ class Role extends Model
 
         return $string;
     }
+
+    public function hasPermission($permission_id) {
+        $permissions = Role::permissions()->get();
+        $help = false;
+        
+        foreach ($permissions as $permission) {
+            if ($permission->id == $permission_id) {
+                $help = true;
+            }
+        }
+
+        return $help;
+    }
 }

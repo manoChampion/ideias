@@ -10,8 +10,8 @@
                     <div class="card-header">
                         <strong class="card-title">Data Table</strong>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-hover table-bordered table-responsive">
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover table-bordered">
                             <a href="{{ route('create-user') }}" class="btn btn-primary" style="color: #FFF;">Criar Usuário</a>
                             <hr>
                             <thead>

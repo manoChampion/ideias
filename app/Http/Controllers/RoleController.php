@@ -32,11 +32,8 @@ class RoleController extends Controller
             $role->name = $request->get('name-role');
             $role->label = $request->get('label-role');
             $role->save();
-
-            foreach ($request->get('permissions-role') as $id_permission) {
-                $permission = Permission::find($id_permission);
-                $role->permissions()->save($permission);
-            }
+            $role->permission()->attach($request->get('permissions-role'));
+            $role->save();
 
             return redirect()->route('view-roles');
         }
@@ -47,8 +44,28 @@ class RoleController extends Controller
         ])->with('permissions', $permissions);
     }
 
-    public function update() {
+    public function update($role_id, Request $request) {
+        $permissions = Permission::all();
+        $role = Role::find($role_id);
 
+        if ($request->get('name-role')) {
+
+            $role->name = $request->get('name-role');
+            $role->label = $request->get('label-role');
+            $role->permissions()->sync($request->get('permissions-role'));
+            $role->save();
+
+            return redirect()->route('view-roles');
+        }
+
+
+        return view('admin.update-role', [
+            'title' => 'Editar Cargo',
+            'path'  => 'Controle de Acesso / Cargos / Editar Cargo'
+        ])->with([
+            'role'        => $role,
+            'permissions' => $permissions,
+        ]);
     }
 
     public function delete($role_id) {

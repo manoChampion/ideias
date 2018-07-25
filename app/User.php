@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'birth', 'username', 'email', 'password',
+        'username', 'birth', 'email', 'password',
     ];
 
     /**
@@ -52,8 +52,17 @@ class User extends Authenticatable
 
     public function hasRole($role_id) {
 
+        $help = false;
 
+       $roles = User::roles()->get();
 
+       foreach ($roles as $role) {
+           if ($role->id == $role_id) {
+               $help = true;
+           } 
+       }
+
+       return $help;
     }
 
 }
