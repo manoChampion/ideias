@@ -52,13 +52,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-light-bulb"></i>Ideias </a>
+                    <a href="{{ route('view-proposals') }}"> <i class="menu-icon ti-light-bulb"></i>Ideias </a>
+                </li>
+                <li>
+                    <a href="{{ route('view-proposals') }}"> <i class="menu-icon ti-archive"></i>Publicações </a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-certificate"></i>Especialização</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-gavel"></i><a href="tables-basic.html">Áreas</a></li>
-                        <li><i class="fa fa-graduation-cap"></i><a href="tables-data.html">Cursos</a></li>
+                        <li><i class="fa fa-gavel"></i><a href="{{ route('view-fields') }}">Áreas</a></li>
+                        <li><i class="fa fa-graduation-cap"></i><a href="{{ route('view-courses') }}">Cursos</a></li>
                     </ul>
                 </li>
                 <li>

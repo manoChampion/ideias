@@ -17,7 +17,7 @@ class PermissionController extends Controller
     public function index() {
         $permissions = Permission::all();
 
-        return view('admin.view-permissions', [
+        return view('admin.acl.permission.view-permissions', [
             'title' => 'Permissões',
             'path'  => 'Controle de Acesso / Permissões'
         ])->with('permissions', $permissions);
@@ -36,7 +36,7 @@ class PermissionController extends Controller
         }
         
 
-        return view('admin.create-permission', [
+        return view('admin.acl.permission.create-permission', [
             'title' => 'Criar',
             'path'  => 'Controle de Acesso / Permissões / Criar'
         ]);

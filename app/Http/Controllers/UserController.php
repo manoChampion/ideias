@@ -13,7 +13,7 @@ class UserController extends Controller
         $users = User::all();
         $roles = Role::all();
 
-        return view('admin.view-users', [
+        return view('admin.acl.user.view-users', [
             'title' => 'Usuários',
             'path'  => 'Controle de Acesso / Usuários'
         ])->with([
@@ -40,7 +40,7 @@ class UserController extends Controller
             return redirect()->route('view-users');
         }
         
-        return view('admin.create-user', [
+        return view('admin.acl.user.create-user', [
             'title' => 'Adicionar Usuário',
             'path'  => 'Controle de Acesso / Usuários / Adicionar Usuário'
         ])->with('roles', $roles);
@@ -67,7 +67,7 @@ class UserController extends Controller
         }
 
 
-        return view('admin.update-user', [
+        return view('admin.acl.user.update-user', [
             'title' => 'Editar Usuário',
             'path'  => 'Controle de Acesso / Usuários / Editar Usuário'
         ])->with([

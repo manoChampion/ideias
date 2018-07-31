@@ -9,30 +9,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'username', 'birth', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    public function proposals() {
+        return $this->hasMany(Proposal::class);
+    }
 
-    /**
-     * Retorna todas as instancias de role
-     *
-     * @return Objeto Role ou Array Role
-     */
     public function roles() {
         return $this->belongsToMany(Role::class);
     }

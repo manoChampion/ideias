@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function index() {
         $roles = Role::all();
 
-        return view('admin.view-roles', [
+        return view('admin.acl.role.view-roles', [
             'title' => 'Cargos',
             'path'  => 'Controle de Acesso / Roles'
         ])->with('roles', $roles);
@@ -38,7 +38,7 @@ class RoleController extends Controller
             return redirect()->route('view-roles');
         }
 
-        return view('admin.create-role', [
+        return view('admin.acl.role.create-role', [
             'title' => 'Criar',
             'path'  => 'Controle de Acesso / Roles'
         ])->with('permissions', $permissions);
@@ -59,7 +59,7 @@ class RoleController extends Controller
         }
 
 
-        return view('admin.update-role', [
+        return view('admin.acl.role.update-role', [
             'title' => 'Editar Cargo',
             'path'  => 'Controle de Acesso / Cargos / Editar Cargo'
         ])->with([
