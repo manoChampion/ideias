@@ -67,11 +67,18 @@ Route::get('/esp/courses/{course_id}/update', 'CourseController@update')->name('
 Route::post('/esp/courses/{course_id}/update', 'CourseController@update')->name('update-course');
 
 // ===============================================================================================
-// IDEIAS
+// POSTS
 // ===============================================================================================
-Route::get('/proposals', 'ProposalController@index')->name('view-proposals');
-Route::get('/proposals/create-proposal', 'ProposalController@create')->name('create-proposal');
-Route::post('/proposals/create-proposal', 'ProposalController@create')->name('create-proposal');
-Route::get('/proposals/{proposal_id}/delete', 'ProposalController@delete')->name('delete-proposal');
-Route::get('/proposals/{proposal_id}/update', 'ProposalController@update')->name('update-proposal');
-Route::post('/proposals/{proposal_id}/update', 'ProposalController@update')->name('update-proposal');
+//Tipoes de Post
+Route::get('/type-post', 'TypePostController@index')->name('view-type-post');
+Route::get('/type-post/create', 'TypePostController@create')->name('create-type-post');
+Route::post('/type-post/create', 'TypePostController@create')->name('create-type-post');
+Route::get('/type-post/{type_id}/delete', 'TypePostController@delete')->name('delete-type-post');
+Route::get('/type-post/{type_id}/update', 'TypePostController@update')->name('update-type-post');
+Route::post('/type-post/{type_id}/update', 'TypePostController@update')->name('update-type-post');
+
+
+
+
+
+Route::get('/posts', 'PostController@index')->name('view-posts');

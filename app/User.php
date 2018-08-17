@@ -17,12 +17,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function proposals() {
-        return $this->hasMany(Proposal::class);
-    }
-
     public function roles() {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
     }
 
     public function rolesToString($user_id) {

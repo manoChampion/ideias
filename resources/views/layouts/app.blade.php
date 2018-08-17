@@ -52,10 +52,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('view-proposals') }}"> <i class="menu-icon ti-light-bulb"></i>Ideias </a>
-                </li>
-                <li>
-                    <a href="{{ route('view-proposals') }}"> <i class="menu-icon ti-archive"></i>Publicações </a>
+                    <a href="{{ route('view-posts') }}"> <i class="menu-icon ti-archive"></i>Publicações </a>
+                    <a href="{{ route('view-type-post') }}"> <i class="menu-icon fa fa-lightbulb-o"></i>Tipos de Publicação </a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-certificate"></i>Especialização</a>

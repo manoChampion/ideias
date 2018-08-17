@@ -10,7 +10,7 @@ class Course extends Model
         return $this->belongsTo(Field::class);
     }
 
-    public function proposals() {
-        return $this->belongsToMany(Proposal::class);
+    public function posts() {
+        return $this->belongsToMany(Post::class);
     }
 }
