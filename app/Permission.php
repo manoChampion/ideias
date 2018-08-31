@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model
 {
-    /**
-     * Retorna todas as instancias de Roles associadas
-     *
-     * @return void
-     */
+    protected $fillable = ['name', 'label'];
+    public $timestamps = true;
+    
     public function roles() {
         return $this->belongsToMany(Role::class);
     }

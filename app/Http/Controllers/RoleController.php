@@ -32,7 +32,7 @@ class RoleController extends Controller
             $role->name = $request->get('name-role');
             $role->label = $request->get('label-role');
             $role->save();
-            $role->permission()->attach($request->get('permissions-role'));
+            $role->permissions()->attach($request->get('permissions-role'));
             $role->save();
 
             return redirect()->route('view-roles');
@@ -40,8 +40,9 @@ class RoleController extends Controller
 
         return view('admin.acl.role.create-role', [
             'title' => 'Criar',
-            'path'  => 'Controle de Acesso / Roles'
-        ])->with('permissions', $permissions);
+            'path'  => 'Controle de Acesso / Roles',
+            'permissions' => $permissions,
+        ]);   
     }
 
     public function update($role_id, Request $request) {

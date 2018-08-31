@@ -23,12 +23,14 @@
                             </thead>
                             <tbody>
                                 @forelse($types as $type)
-                                <td>{{ $type->title }}</td>
-                                <td>{{ $type->label }}</td>
-                                <td>
-                                    <a href="{{ route('delete-type-post', $type->id) }}"><i class="fa fa-remove"></i> Remover</a>
-                                    <a href="{{ route('update-type-post', $type->id) }}"><i class="fa fa-pencil"></i> Editar</a>
-                                </td>
+                                <tr>
+                                    <td>{{ $type->title }}</td>
+                                    <td>{{ $type->label }}</td>
+                                    <td>
+                                        <a href="{{ route('delete-type-post', $type->id) }}"><i class="fa fa-remove"></i> Remover</a>
+                                        <a href="{{ route('update-type-post', $type->id) }}"><i class="fa fa-pencil"></i> Editar</a>
+                                    </td>
+                                </tr>
                                 @empty
                                 <h6>Não há tipos cadastrados</h6>
                                 @endforelse

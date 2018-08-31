@@ -69,7 +69,7 @@ Route::post('/esp/courses/{course_id}/update', 'CourseController@update')->name(
 // ===============================================================================================
 // POSTS
 // ===============================================================================================
-//Tipoes de Post
+//Post Types Routes
 Route::get('/type-post', 'TypePostController@index')->name('view-type-post');
 Route::get('/type-post/create', 'TypePostController@create')->name('create-type-post');
 Route::post('/type-post/create', 'TypePostController@create')->name('create-type-post');
@@ -77,8 +77,10 @@ Route::get('/type-post/{type_id}/delete', 'TypePostController@delete')->name('de
 Route::get('/type-post/{type_id}/update', 'TypePostController@update')->name('update-type-post');
 Route::post('/type-post/{type_id}/update', 'TypePostController@update')->name('update-type-post');
 
-
-
-
-
+//Posts Routes
 Route::get('/posts', 'PostController@index')->name('view-posts');
+Route::get('/posts/create-post', 'PostController@create')->name('create-post');
+Route::post('/posts/create-post', 'PostController@create')->name('create-post');
+Route::get('/posts/{post_id}/delete', 'PostController@delete')->name('delete-post');
+Route::get('/posts/{post_id}/update', 'PostController@update')->name('update-post');
+Route::post('/posts/{post_id}/update', 'PostController@update')->name('update-post');

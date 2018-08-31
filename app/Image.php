@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+    protected $fillable = ['path', 'post_id'];
+    public $timestamps = true;
+
     public function post() {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsTo(Post::class);
     }
 }
