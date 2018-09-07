@@ -18,11 +18,11 @@ class TypePostController extends Controller
 
     public function create(Request $request) {
 
-        if ($request->get('title-type')) {
+        if ($request->get('title')) {
             
             $type = new TypePost();
-            $type->title = $request->get('title-type');
-            $type->label = $request->get('label-type');
+            $type->title = $request->get('title');
+            $type->label = $request->get('label');
             $type->save();
 
             return redirect()->route('view-type-post');
@@ -37,9 +37,9 @@ class TypePostController extends Controller
     public function update($type_id, Request $request) {
         $type = TypePost::find($type_id);
 
-        if ($request->get('title-type')) {
-            $type->title = $request->get('title-type');
-            $type->label = $request->get('label-type');
+        if ($request->get('title')) {
+            $type->title = $request->get('title');
+            $type->label = $request->get('label');
             $type->save();
 
             return redirect()->route('view-type-post');

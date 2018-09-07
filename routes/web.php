@@ -84,3 +84,14 @@ Route::post('/posts/create-post', 'PostController@create')->name('create-post');
 Route::get('/posts/{post_id}/delete', 'PostController@delete')->name('delete-post');
 Route::get('/posts/{post_id}/update', 'PostController@update')->name('update-post');
 Route::post('/posts/{post_id}/update', 'PostController@update')->name('update-post');
+
+// ===============================================================================================
+// INSTITUTIONS
+// ===============================================================================================
+//Institutions Routes
+Route::get('/institutions', 'InstitutionController@index')->name('view-institutions');
+Route::get('/institutions/create', 'InstitutionController@create')->name('create-institution');
+Route::post('/institutions/create', 'InstitutionController@create')->name('create-institutions');
+Route::get('/institutions/{institution_id}/delete', 'InstitutionController@delete')->name('delete-institution');
+Route::get('/institutions/{institution_id}/update', 'InstitutionController@update')->name('update-institution');
+Route::post('/institutions/{institution_id}/update', 'InstitutionController@update')->name('update-institution');

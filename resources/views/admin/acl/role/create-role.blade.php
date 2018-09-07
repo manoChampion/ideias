@@ -10,17 +10,17 @@
                 <form action="{{ route('create-role') }}" method="post" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="name-role" class=" form-control-label">Título do Cargo</label></div>
-                        <div class="col-12 col-md-9"><input type="text" id="name-role" name="name-role" placeholder="Ex.: Administrador" class="form-control" required><small class="form-text text-muted">Use apenas uma palavra, se caso for necessário utilizar mais separe com '-' (hífen)</small></div>
+                        <div class="col col-md-3"><label for="name" class=" form-control-label">Título do Cargo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="name" name="name" placeholder="Ex.: Administrador" class="form-control" required><small class="form-text text-muted">Use apenas uma palavra, se caso for necessário utilizar mais separe com '-' (hífen)</small></div>
                     </div>
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="label-role" class=" form-control-label">Breve descrição</label></div>
-                        <div class="col-12 col-md-9"><textarea name="label-role" id="label-role" rows="3" placeholder="Ex.: Administra as páginas do projeto" class="form-control" required></textarea></div>
+                        <div class="col col-md-3"><label for="label" class=" form-control-label">Breve descrição</label></div>
+                        <div class="col-12 col-md-9"><textarea name="label" id="label" rows="3" placeholder="Ex.: Administra as páginas do projeto" class="form-control" required></textarea></div>
                     </div>
                     <div class="row form-group">
-                        <div class="col col-md-3"><label for="permissions-role" class=" form-control-label">Permissões</label></div>
+                        <div class="col col-md-3"><label for="permissions" class=" form-control-label">Permissões</label></div>
                         <div class="col col-md-9">
-                            <select name="permissions-role[]" id="permissions-role" multiple class="form-control" required>
+                            <select name="permissions[]" id="permissions" multiple class="form-control" required>
                                 @forelse($permissions as $permission)
                                     <option value="{{ $permission->id }}" >{{ $permission->name }} ( {{ $permission->label }} )</option>
 

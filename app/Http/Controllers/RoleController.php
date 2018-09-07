@@ -26,13 +26,13 @@ class RoleController extends Controller
 
         $permissions = Permission::all();
 
-        if ($request->get('name-role')) {
+        if ($request->get('name')) {
             $role = new Role();
 
-            $role->name = $request->get('name-role');
-            $role->label = $request->get('label-role');
+            $role->name = $request->get('name');
+            $role->label = $request->get('label');
             $role->save();
-            $role->permissions()->attach($request->get('permissions-role'));
+            $role->permissions()->attach($request->get('permissions'));
             $role->save();
 
             return redirect()->route('view-roles');
@@ -49,11 +49,11 @@ class RoleController extends Controller
         $permissions = Permission::all();
         $role = Role::find($role_id);
 
-        if ($request->get('name-role')) {
+        if ($request->get('name')) {
 
-            $role->name = $request->get('name-role');
-            $role->label = $request->get('label-role');
-            $role->permissions()->sync($request->get('permissions-role'));
+            $role->name = $request->get('name');
+            $role->label = $request->get('label');
+            $role->permissions()->sync($request->get('permissions'));
             $role->save();
 
             return redirect()->route('view-roles');

@@ -20,12 +20,12 @@ class FieldController extends Controller
 
     public function create(Request $request) {
 
-        if ($request->get('name-field')) {
+        if ($request->get('name')) {
 
             $field = new Field();
 
-            $field->name = $request->get('name-field');
-            $field->description = $request->get('description-field');
+            $field->name = $request->get('name');
+            $field->description = $request->get('description');
 
             $field->save();
 
@@ -42,9 +42,9 @@ class FieldController extends Controller
     public function update($field_id, Request $request) {
         $field = Field::find($field_id);
 
-        if ($request->get('name-field')) {
-            $field->name = $request->get('name-field');
-            $field->description = $request->get('description-field');
+        if ($request->get('name')) {
+            $field->name = $request->get('name');
+            $field->description = $request->get('description');
             $field->save();
 
             return redirect()->route('view-fields');

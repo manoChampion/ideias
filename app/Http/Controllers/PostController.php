@@ -23,14 +23,14 @@ class PostController extends Controller
         $types = TypePost::all();
         $courses = Course::all();
 
-        if ($request->get('content-post')) {
+        if ($request->get('content')) {
             $post = Post::create([
-                'content' => $request->get('content-post'), 
-                'type_id' => $request->get('type-post'),
+                'content' => $request->get('content'), 
+                'type_id' => $request->get('type'),
                 'user_id' => $request->user()->id,
             ]);
             
-            $post->courses()->attach($request->get('course-post'));
+            $post->courses()->attach($request->get('course'));
 
             return redirect()->route('view-posts');
         }
@@ -50,12 +50,12 @@ class PostController extends Controller
         $courses = Course::all();
         $post = Post::find($post_id);
 
-        if ($request->get('content-post')) {
+        if ($request->get('content')) {
             $post = Post::find($post_id);
 
-            $post->content = $request->get('content-post');
-            $post->type_id = $request->get('type-post');
-            $post->courses()->sync($request->get('course-post'));
+            $post->content = $request->get('content');
+            $post->type_id = $request->get('type');
+            $post->courses()->sync($request->get('course'));
 
             $post->save();
 

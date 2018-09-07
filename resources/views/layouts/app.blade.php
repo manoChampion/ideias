@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home - IDEIAS.COM</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,7 +64,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-home"></i>Instituições </a>
+                    <a href="{{ route('view-institutions') }}"> <i class="menu-icon ti-home"></i>Instituições </a>
                 </li>
                 <li>
                     <a href="widgets.html"> <i class="menu-icon fa fa-comments"></i>Bate-Papo </a>
@@ -192,7 +193,7 @@
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-
+<script src="{{ asset("js/app.js") }}"></script>
 <script src="{{ asset("js/vendor/jquery-2.1.4.min.js") }}"></script>
 <script src="{{ asset("js/popper.min.js") }}"></script>
 <script src="{{ asset("js/plugins.js") }}"></script>

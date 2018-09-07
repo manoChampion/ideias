@@ -21,12 +21,12 @@ class CourseController extends Controller
 
         $fields = Field::all();        
 
-        if ($request->get('name-course')) {
+        if ($request->get('name')) {
             $course = new Course();
-            $field = Field::find($request->get('field-course'));
+            $field = Field::find($request->get('field'));
 
-            $course->name = $request->get('name-course');
-            $course->description = $request->get('description-course');
+            $course->name = $request->get('name');
+            $course->description = $request->get('description');
             $course->field()->associate($field);
             $course->save();
             
@@ -45,13 +45,13 @@ class CourseController extends Controller
         $fields = Field::all();
         $course = Course::find($course_id);
 
-        if ($request->get('name-course')) {
+        if ($request->get('name')) {
             $course = Course::find($course_id);
 
-            $course->name = $request->get('name-course');
-            $course->description = $request->get('description-course');
+            $course->name = $request->get('name');
+            $course->description = $request->get('description');
             
-            $field = Field::find($request->get('field-course'));
+            $field = Field::find($request->get('field'));
             
             $course->field()->associate($field);
             $course->save();

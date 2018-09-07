@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::all();
+
+        // Rejeita Usuário Logado
+        $users = User::all()->reject(function ($user) {
+            return $user->id == $user->id;
+        });
         $roles = Role::all();
 
         return view('admin.acl.user.view-users', [

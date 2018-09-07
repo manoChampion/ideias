@@ -25,10 +25,10 @@ class PermissionController extends Controller
 
     public function create(Request $request) {
 
-        if  ($request->get('name-permission')) {
+        if  ($request->get('name')) {
             $permission = new Permission();
-            $permission->name = $request->get('name-permission');
-            $permission->label = $request->get('label-permission');
+            $permission->name = $request->get('name');
+            $permission->label = $request->get('label');
 
             $permission->save();
 
