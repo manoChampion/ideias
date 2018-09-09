@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Institution;
 
 class InstitutionController extends Controller
@@ -39,6 +40,27 @@ class InstitutionController extends Controller
     }
 
     public function update($institution_id, Request $request) {
+
+        $institution = Institution::find($institution_id);
+
+        if ($request->get('name') != null) {
+
+            $institution->name = $request->get('name');
+            $institution->description = $request->get('description');
+            $institution->phone = $request->get('phone');
+            $institution->address = $request->get('address');
+
+            $institution->save();
+
+            return redirect()->route('view-institutions');
+
+        }
+
+        return view('admin.institution.update-institution', [
+            'title' => 'Editar Instituição',
+            'path'  => 'Instituições / Editar Instituição',
+            'institution' => $institution,
+        ]);
 
     }
 

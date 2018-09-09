@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use Illuminate\Support\Facades\Hash;
@@ -12,9 +13,7 @@ class UserController extends Controller
     public function index() {
 
         // Rejeita Usuário Logado
-        $users = User::all()->reject(function ($user) {
-            return $user->id == $user->id;
-        });
+        $users = User::all();
         $roles = Role::all();
 
         return view('admin.acl.user.view-users', [
@@ -56,15 +55,13 @@ class UserController extends Controller
         $roles = Role::all();
         $user = User::find($user_id);
 
-        if ($request->get('name-user')) {
-            $user = User::find($user_id);
-
-            $user->username = $request->get('name-user');
-            $user->email = $request->get('email-user');
-            $user->birth = $request->get('birth-user');
-            $user->password = $request->get('password-user');
+        if ($request->get('username')) {
+            $user->username = $request->get('username');
+            $user->email = $request->get('email');
+            $user->birth = $request->get('birth');
+            $user->password = Hash::make($request->get('password'));
             $user->save();
-            $user->roles()->sync($request->get('role-user'));
+            $user->roles()->sync($request->get('role'));
             $user->save();
 
             return redirect()->route('view-users');
