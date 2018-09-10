@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        if (Gate::denies('view-menu-admin'))
+            return redirect()->back();
+
         return view('home', [
             'title' => 'Dashboard',
             'path'  => 'Dashboard'

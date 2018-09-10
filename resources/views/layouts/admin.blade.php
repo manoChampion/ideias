@@ -44,6 +44,9 @@
                 <li class="active">
                     <a href="{{ route('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
+                <li class="active">
+                    <a href="/app/feed"> <i class="menu-icon fa fa-feed"></i>Feed </a>
+                </li>
                 <h3 class="menu-title">Desenvolvedor</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-eye"></i>Controle de Acesso</a>

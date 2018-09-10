@@ -11,13 +11,18 @@
 |
 */
 Auth::routes();
+Route::get('/', function() {
+    return view('welcome');
+});
+
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
-Auth::routes();
+
+
+// URLs Redirecionadas
+Route::redirect('/app', '/app/feed', 301);
+Route::redirect('/feed', '/app/feed', 301);
+Route::redirect('/home', '/admin/home', 301);
 
 // ===============================================================================================
 // 
@@ -125,8 +130,17 @@ Route::namespace('Admin')->group(function () {
 // 
 // ===============================================================================================
 
-Route::prefix('app')->group(function () {
+Route::namespace('App')->group(function () {
+    Route::prefix('app')->group(function () {
 
-    // Route::get('feed', )
+        
+        // ===============================================================================================
+        // Feed Routes
+        // ===============================================================================================
+
+        Route::get('feed', 'FeedController@index')->name('feed');
+
+    });
+});
 
 });

@@ -1,0 +1,59 @@
+@media (max-width: 575.99px) {
+  .right-panel {
+    display: block;
+  }
+}
+
+.right-panel {
+  display: block;
+}
+
+aside.left-panel {
+  color: black;
+}
+
+aside.left-panel {
+  background: white;
+}
+
+aside nav.navbar {
+  background: white;
+}
+
+aside a {
+  color: black !important;
+}
+
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:focus,
+.navbar .navbar-nav > .active > a:hover {
+  color: black !important;
+}
+
+.navbar .navbar-nav li.active .menu-icon,
+.navbar .navbar-nav li:hover .toggle_nav_button:before,
+.navbar .navbar-nav li .toggle_nav_button.nav-open:before {
+  color: black !important;
+}
+
+.navbar .menu-title {
+  color: black;
+}
+
+.navbar .navbar-nav li > a {
+  color: black !important;
+}
+
+.navbar .navbar-brand {
+  color: black !important;
+}
+
+.navbar .navbar-nav li.menu-item-has-children .sub-menu {
+  background: white !important;
+}
+
+.navbar .navbar-nav li > a:hover,
+.navbar .navbar-nav li > a:hover .menu-icon {
+  color: #ccc !important;
+}
+
