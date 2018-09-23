@@ -106,24 +106,29 @@
                 </div>
             </div> 
         </header>
+        @yield('form-post')
     </div>
-    <div class="container-fluid main-panel">
-        <div class="row bottom-panel">
-            <div class="col-12">
-                olá
+    <div id="bottom-panel" class="container-fluid bottom-panel">
+        <div class="row row justify-content-md-center">
+            <div class="col-md-8">
+                @yield('content')
             </div>
         </div>
     </div>
-
-{{-- <div class="content">
-    @yield('content')
-</div> --}}
 
 <script src="{{ asset("js/vendor/jquery-2.1.4.min.js") }}"></script>
 <script src="{{ asset("js/popper.min.js") }}"></script>
 <script src="{{ asset("js/plugins.js") }}"></script>
 <script src="{{ asset("js/main-theme.js") }}"></script>
 <script src="{{ asset("js/app.js") }}"></script>
+
+<script>
+$(document).ready(function() {
+  var height = $("#right-panel").height();
+  $("#bottom-panel").css("margin-top", height + 20);
+
+});
+</script>
 
 </body>
 </html>

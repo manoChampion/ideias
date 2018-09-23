@@ -1,5 +1,8 @@
 <?php
 
+use App\Events\eventTrigger;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +13,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/alertBox', function () {
+    return view('eventListener');
+});
+
+Route::get('/fireEvent', function () {
+    event(new eventTrigger());
+});
+
+
+
+
+
+
+
 Auth::routes();
 Route::get('/', function() {
     return view('welcome');
@@ -139,6 +157,8 @@ Route::namespace('App')->group(function () {
         // ===============================================================================================
 
         Route::get('feed', 'FeedController@index')->name('feed');
+        Route::post('publish', 'FeedController@publishPost')->name('publishPost');
+        Route::post('create-post', 'FeedController@create')->name('teste');
 
     });
 });
