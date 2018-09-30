@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\App;
 
 use App\Course;
+use App\Events\LikeEvent;
+use App\Events\PublishPost;
 use App\TypePost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,13 +24,8 @@ class FeedController extends Controller
         ]);
     }
 
-
-
-    // =================================================
-    // MÉTODO REALTIME PUSHER
-    // =================================================
-    public function publishPost(Request $request) {
-        event(new PostPublished(Auth::user(), $request->get('content')));
+    public function posts() {
+        return response()->json();
     }
 
     // =================================================
@@ -42,10 +39,10 @@ class FeedController extends Controller
         if ($request->get('content')) {
             $post = Post::create([
                 'content' => $request->get('content'), 
-                'type_id' => $request->get('type') == "1" ? 1 : 0,
+                'type_id' => $request->get('type') == "1" ? 1 : 2,
                 'user_id' => Auth::user()->id,
             ]);
-            
+            //event(new PublishPost($post));
             // $post->courses()->attach($request->get('course'));
         }
 

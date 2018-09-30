@@ -13,6 +13,10 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function users_like() {
+        return $this->belongsToMany(User::class, 'likes');
+    }
+
     public function type() {
         return $this->belongsTo(TypePost::class);
     }

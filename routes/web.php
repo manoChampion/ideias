@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 use App\Events\eventTrigger;
 
@@ -148,19 +148,20 @@ Route::namespace('Admin')->group(function () {
 // 
 // ===============================================================================================
 
-Route::namespace('App')->group(function () {
-    Route::prefix('app')->group(function () {
+    Route::namespace('App')->group(function () {
+        Route::prefix('app')->group(function () {
 
-        
-        // ===============================================================================================
-        // Feed Routes
-        // ===============================================================================================
 
-        Route::get('feed', 'FeedController@index')->name('feed');
-        Route::post('publish', 'FeedController@publishPost')->name('publishPost');
-        Route::post('create-post', 'FeedController@create')->name('teste');
+            // ===============================================================================================
+            // Feed Routes
+            // ===============================================================================================
 
+            Route::get('feed', 'FeedController@index')->name('feed');
+            Route::post('create-post', 'FeedController@create')->name('teste');
+
+            Route::get('reponse', 'FeedController@posts');
+
+        });
     });
-});
 
 });

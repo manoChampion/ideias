@@ -26,6 +26,10 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function posts_like() {
+        return $this->belongsToMany(Post::class, 'likes');
+    }
+
     public function rolesToString($user_id) {
 
         $roles  = User::find($user_id)->roles()->get();
